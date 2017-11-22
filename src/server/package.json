@@ -1,0 +1,31 @@
+{
+  "name": "sniffer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist -s",
+    "dev": "nodemon ./index.js --preset es2017"
+  },
+  "author": "eduardo",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2017": "^6.24.1",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "awilix": "^2.7.0",
+    "awilix-koa": "^0.1.1",
+    "kcors": "^2.2.1",
+    "koa": "^2.3.0",
+    "koa-convert": "^1.2.0",
+    "koa-respond": "^1.0.1",
+    "koa-router": "^7.2.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "tough-cookie": "^2.3.2"
+  }
+}
