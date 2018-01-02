@@ -2,8 +2,6 @@ import {
     makeClassInvoker
   } from 'awilix-koa'
   
-  import packageInfo from '../../package.json'
-  
   class EndpointController {
     constructor ({
       systemService
@@ -13,9 +11,9 @@ import {
   
     async getInfo (ctx) {   
       ctx.body = {
-        "inf": await this.systemService.description()
+        "inf": await this.systemService.desc()
+        }
       };
-    }
   }
   
   export default function (router) {
