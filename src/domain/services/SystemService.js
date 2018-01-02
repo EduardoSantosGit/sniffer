@@ -1,3 +1,5 @@
+import os from 'os'
+
 const __classes = {
     // User 1's classes.
     1: [{
@@ -17,8 +19,13 @@ const __classes = {
   
   export default class ClassService {
     
-    async message(){
-      return "Hello"
+    async description(){
+      let jsonInf = {
+        "cpu" : os.cpus(),
+        "hostname": os.hostname(),
+        "homedir": os.homedir()
+      }
+      return jsonInf
     }
 
   }

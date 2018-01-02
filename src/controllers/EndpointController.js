@@ -1,19 +1,19 @@
 import {
     makeClassInvoker
   } from 'awilix-koa'
-  import os from 'os'
+  
   import packageInfo from '../../package.json'
   
   class EndpointController {
     constructor ({
-      classService
+      systemService
     }) {
-      this.classService = classService 
+      this.systemService = systemService 
     }
   
     async getInfo (ctx) {   
       ctx.body = {
-        "messages": await this.classService.message()
+        "inf": await this.systemService.description()
       };
     }
   }
