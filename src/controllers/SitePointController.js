@@ -14,7 +14,7 @@ import  dns from 'dns'
     async getInfoSite (ctx) {   
         const site = ctx.params.site
         ctx.body = {
-            "inf" : await this.sitesService.getInfoSite(site)
+            "inf" : await this.sitesService.getServers(site)
         } 
     }    
   }
