@@ -1,7 +1,7 @@
 import {
   makeClassInvoker
 } from 'awilix-koa'
-
+import BaseController from '../lib/BaseController'
 
 class SitePointController {
   constructor({
