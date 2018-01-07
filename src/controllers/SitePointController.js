@@ -12,9 +12,8 @@ class SitePointController {
 
   async getInfoSite(ctx) {
     const site = ctx.params.site
-    ctx.body = {
-      "inf": await this.sitesService.getServers(site)
-    };
+    BaseController.createResponseFromResult(ctx,
+      await this.sitesService.getServers(site), "inf")
   }
 }
 

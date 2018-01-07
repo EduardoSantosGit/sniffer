@@ -1,4 +1,5 @@
 import dns from 'dns'
+import Result from '../common/Result'
 
 export default class SitesService {
 
@@ -6,9 +7,9 @@ export default class SitesService {
         return new Promise(function (resolve, reject) {
             dns.lookup(site, (err, address, family) => {
                 if (err) {
-                    reject(err)
+                    reject(new Result("ERROR", err))
                 }
-                resolve(address)
+                resolve(new Result("OK", address))
             })
         })
     }
@@ -24,6 +25,6 @@ export default class SitesService {
         })
     }
 
-    
+
 
 }

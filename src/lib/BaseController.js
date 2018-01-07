@@ -1,10 +1,10 @@
 export default class BaseController {
 
     static createResponseFromResult(ctx, result, resourceName = null) {
-
+        
         if (result.status === "OK") {
-            ctx.status = 200;
-            if (Array.isArray(result.value)) {
+            ctx.status = 200;                       
+            if (Array.isArray(result.value)) {                
                 ctx.body = {
                     "totalCount": (result.value || []).length,
                 };
@@ -27,7 +27,7 @@ export default class BaseController {
                 "messages": result.value
             };
         }
-        else {
+        else {           
             ctx.status = (result.status === "NOTFOUND")
                 ? 404
                 : (result.status === "DUPLICATED")
