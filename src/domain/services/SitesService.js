@@ -13,7 +13,7 @@ export default class SitesService {
         })
     }
 
-    async reverse(ip){
+    async reverse(ip) {
         return new Promise(function (resolve, reject) {
             dns.reverse(ip, (err, hostnames) => {
                 if (err) {
@@ -23,5 +23,7 @@ export default class SitesService {
             })
         })
     }
+
+    
 
 }
