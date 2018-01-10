@@ -12,8 +12,11 @@ class SitePointController {
 
   async getInfoSite(ctx) {
     const site = ctx.params.site
-    BaseController.createResponseFromResult(ctx,
-      await this.sitesService.getServers(site), "inf")
+    ctx.body = ""
+    let ret = await this.sitesService.getServerInformation(site)
+    ctx.body = ret.value
+   // BaseController.createResponseFromResult(ctx,
+    //  await this.sitesService.getServers(site), "inf")
   }
 }
 
@@ -23,3 +26,21 @@ export default function (router) {
 
   router.get('/sites/info/:site', api('getInfoSite'))
 }
+/*
+router.post('/resume', (ctx) => {
+  ctx.body = '';
+  return new Promise((resolve, reject) => {
+    form.on('error', reject);
+    form.on('close', resolve);
+    form.parse(ctx.req, (err, fields, files) => {
+      sendMail(fields.candidateName, files.attachment)
+        .then((completed) => {
+          ctx.body += completed + '\n';
+        })
+        .catch((err) => {
+          ctx.body += 'ERROR: ' + err + '\n';
+          ctx.status = 500;
+        })
+    });
+  });
+});*/

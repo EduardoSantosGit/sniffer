@@ -3,13 +3,18 @@ import Result from '../common/Result'
 
 export default class SitesService {
 
+    async getServerInformation(site){
+        let ret = await this.getServers(site)
+        return new Result("OK", ret)
+    }
+
     async getServers(site) {
         return new Promise(function (resolve, reject) {
             dns.lookup(site, (err, address, family) => {
                 if (err) {
-                    reject(new Result("ERROR", err))
+                    reject(err)
                 }
-                resolve(new Result("OK", address))
+                resolve(address)
             })
         })
     }

@@ -3,7 +3,7 @@ export default class BaseController {
     static createResponseFromResult(ctx, result, resourceName = null) {
         
         if (result.status === "OK") {
-            ctx.status = 200;                       
+            ctx.status = 200;                                
             if (Array.isArray(result.value)) {                
                 ctx.body = {
                     "totalCount": (result.value || []).length,
@@ -14,7 +14,7 @@ export default class BaseController {
 
                 ctx.body[resourceName] = result.value;
             } else {
-                if (resourceName) {
+                if (resourceName) {                    
                     ctx.body = {};
                     ctx.body[resourceName] = result.value;
                 } else {
