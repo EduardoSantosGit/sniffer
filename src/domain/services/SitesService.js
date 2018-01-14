@@ -9,14 +9,15 @@ export default class SitesService {
     }
 
     async getServers(site) {
-        return new Promise(function (resolve, reject) {
+       return new Promise(function (resolve, reject) {
             dns.lookup(site, (err, address, family) => {
                 if (err) {
-                    reject(err)
+                   reject(err)
                 }
                 resolve(address)
+                return address
             })
-        })
+        })      
     }
 
     async reverse(ip) {
@@ -30,6 +31,18 @@ export default class SitesService {
         })
     }
 
+    async serversService(ip) {
+        return new Promise(function (resolve, reject) {
+            dns.lookupService(ip, 22, (err, hostname, service) => {
+                if (err) {
+                    reject(err)
+                }
+                resolve(hostnames)
+              });
+        })
+    }
 
+
+    
 
 }

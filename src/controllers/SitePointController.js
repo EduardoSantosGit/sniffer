@@ -2,6 +2,7 @@ import {
   makeClassInvoker
 } from 'awilix-koa'
 import BaseController from '../lib/BaseController'
+import dns from 'dns'
 
 class SitePointController {
   constructor({
@@ -15,8 +16,6 @@ class SitePointController {
     ctx.body = ""
     let ret = await this.sitesService.getServerInformation(site)
     ctx.body = ret.value
-   // BaseController.createResponseFromResult(ctx,
-    //  await this.sitesService.getServers(site), "inf")
   }
 }
 
@@ -26,21 +25,3 @@ export default function (router) {
 
   router.get('/sites/info/:site', api('getInfoSite'))
 }
-/*
-router.post('/resume', (ctx) => {
-  ctx.body = '';
-  return new Promise((resolve, reject) => {
-    form.on('error', reject);
-    form.on('close', resolve);
-    form.parse(ctx.req, (err, fields, files) => {
-      sendMail(fields.candidateName, files.attachment)
-        .then((completed) => {
-          ctx.body += completed + '\n';
-        })
-        .catch((err) => {
-          ctx.body += 'ERROR: ' + err + '\n';
-          ctx.status = 500;
-        })
-    });
-  });
-});*/
