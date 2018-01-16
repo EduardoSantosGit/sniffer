@@ -8,7 +8,7 @@ const modulesToLoad = [
   // Services should be scoped to the request.
   // This means that each request gets a separate instance
   // of a service.
-  ['domain/services/*.js', Lifetime.SCOPED]
+  ['../domain/services/*.js', Lifetime.SCOPED]
 ]
 
 /**

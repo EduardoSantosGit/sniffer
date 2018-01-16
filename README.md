@@ -1,5 +1,3 @@
-### Project Koa Using ES8
+# koa_project_start
 
-### Lib Babel execution
-
-### Lib Awilix Injection
+Configurações iniciais para utilizar o framework Koa.js
