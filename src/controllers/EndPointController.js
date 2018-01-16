@@ -1,11 +1,15 @@
 import { makeClassInvoker } from 'awilix-koa'
 
 class EndpointController {
- 
+  
+  constructor({ systemService }){
+      this.systemService = systemService
+  }
+
   async getInfo (ctx) {
     ctx.ok({
       timestamp: new Date(),
-      message: "Hello World"
+      info: await this.systemService.getInfoSystem()
     })
   }
 
