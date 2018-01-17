@@ -1,8 +1,6 @@
 import DataSiteService from '../../src/domain/services/DataSiteService'
 import { expect } from 'chai'
 
-
-
 describe('DataSiteService service', function () {
 
     it('test method getLookup returns array items OK', async function () {
