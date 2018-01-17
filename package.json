@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon src/bin/server.js --preset es2017",
-    "test": "mocha test/**/*.spec.js --require babel-core/register"
+    "test": "mocha test/**/*.spec.js --require babel-core/register --timeout 80000"
   },
   "author": "eduardo",
   "license": "ISC",

@@ -8,11 +8,18 @@ describe('DataSiteService service', function () {
             let dataService = new DataSiteService();
             let retArray = await dataService.getLookup("www.google.com");
 
-            expect(retArray[0]).to.equal("216.58.202.164");
+            expect(retArray[0]).to.not.null;
             expect(retArray[1]).to.equal(4);
             expect(retArray.length).to.equal(2);
     })
     
-    
+    it('test method getResolve4 returns dictionary items', async function () {
+            
+        let dataService = new DataSiteService();
+        let retArray = await dataService.getResolve4("www.google.com");
+
+        console.log(retArray)
+
+    })
 
 });
