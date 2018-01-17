@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon src/bin/server.js --preset es2017",
-    "test": "mocha test/**/*.spec.js"
+    "test": "mocha test/**/*.spec.js --require babel-core/register"
   },
   "author": "eduardo",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2017": "^6.24.1",
+    "chai": "^4.1.2",
     "mocha": "^4.1.0",
     "nodemon": "^1.12.1"
   },
