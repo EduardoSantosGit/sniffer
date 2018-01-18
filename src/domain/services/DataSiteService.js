@@ -26,7 +26,7 @@ export default class DataSiteService {
     }
     
     async getReverse(addresses){
-        return await new Promise(function(resolve, reject){
+        return new Promise(function(resolve, reject){
             dns.reverse(addresses, (err, hostnames) => {
                 if (err) {
                    reject(err);
@@ -35,5 +35,4 @@ export default class DataSiteService {
             });
         })
     }
-
 }
