@@ -18,8 +18,12 @@ describe('DataSiteService service', function () {
         let dataService = new DataSiteService();
         let retArray = await dataService.getResolve4("www.google.com");
 
-        console.log(retArray)
-
     })
+
+    it('test method getResolve4 returns dictionary false', async function () {
+        
+    let dataService = new DataSiteService();
+    let retArray = await dataService.getReverse([ '216.58.202.228' ]);
+})
 
 });

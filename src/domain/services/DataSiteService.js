@@ -15,25 +15,25 @@ export default class DataSiteService {
     }
     
     async getResolve4(site){
-
-        let hash = new Map();
-
         return new Promise(function(resolve, reject){
             dns.resolve4(site, (err, addresses) => {
                 if (err) 
                     reject(err);
 
-                    addresses.forEach((a) => {
-                        dns.reverse(a, (err, hostnames) => {
-                            if (err) {
-                                reject(err);
-                            }
-                            hash.set(hostnames, addresses);
-                        });
-                    });           
+                resolve(addresses)                          
               });
         });
-    }   
-
+    }
+    
+    async getReverse(addresses){
+        return await new Promise(function(resolve, reject){
+            dns.reverse(addresses, (err, hostnames) => {
+                if (err) {
+                   reject(err);
+                }
+                resolve(hostnames);               
+            });
+        })
+    }
 
 }
