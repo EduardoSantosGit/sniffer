@@ -12,6 +12,16 @@ describe('DataSiteService service', function () {
         expect(retArray[1]).to.equal(4);
         expect(retArray.length).to.equal(2);
     })
+
+    it('test method getLookup returns array ipv6 items OK', async function () {
+            
+        let dataService = new DataSiteService();
+        let retArray = await dataService.getLookup("www.ipv6tf.org");
+
+        expect(retArray[0]).to.not.null;
+        expect(retArray[1]).to.equal(4);
+        expect(retArray.length).to.equal(2);
+    })
     
     it('test method getResolve4 returns dictionary items', async function () {
             
