@@ -24,6 +24,17 @@ export default class DataSiteService {
               });
         });
     }
+
+    async getResolve6(site){
+        return new Promise(function(resolve, reject){
+            dns.resolve6(site, (err, addresses) => {
+                if (err) 
+                    reject(err);
+
+                resolve(addresses)                          
+              });
+        });
+    }
     
     async getReverse(addresses){
         return new Promise(function(resolve, reject){
