@@ -15,7 +15,8 @@
     "babel-preset-es2017": "^6.24.1",
     "chai": "^4.1.2",
     "mocha": "^4.1.0",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "sinon": "^4.1.6"
   },
   "dependencies": {
     "awilix": "^3.0.1",

@@ -1,5 +1,4 @@
 import dns from 'dns'
-import { read } from 'fs';
 
 export default class DataSiteService {
 
