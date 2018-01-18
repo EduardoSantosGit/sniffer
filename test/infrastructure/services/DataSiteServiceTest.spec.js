@@ -3,7 +3,7 @@ import { expect } from 'chai'
 
 describe('DataSiteService service', function () {
 
-    it('test method getLookup returns array items OK', async function () {
+    it('test method getLookup returns array ipv4 items OK', async function () {
             
         let dataService = new DataSiteService();
         let retArray = await dataService.getLookup("www.google.com");
@@ -22,6 +22,15 @@ describe('DataSiteService service', function () {
         expect(retArray[0]).to.not.null;
     })
 
+    it('test method getResolve6 returns dictionary items', async function () {
+            
+        let dataService = new DataSiteService();
+        let retArray = await dataService.getResolve6("www.ipv6tf.org");
+
+        expect(retArray.length > 0).to.true;
+        expect(retArray[0]).to.not.null;
+    })
+
     it('test method getReverse returns array items', async function () {
             
         let dataService = new DataSiteService();
@@ -30,6 +39,5 @@ describe('DataSiteService service', function () {
         expect(retArray.length > 0).to.true;
         expect(retArray[0]).to.not.null;
     })
-
-    
+ 
 });
