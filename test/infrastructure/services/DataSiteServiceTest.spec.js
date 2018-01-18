@@ -22,10 +22,10 @@ describe('DataSiteService service', function () {
         expect(retArray[0]).to.not.null;
     })
 
-    it('test method getResolve4 returns dictionary items', async function () {
+    it('test method getReverse returns array items', async function () {
             
         let dataService = new DataSiteService();
-        let retArray = await dataService.getResolve4("www.google.com");
+        let retArray = await dataService.getReverse("216.58.202.68");
 
         expect(retArray.length > 0).to.true;
         expect(retArray[0]).to.not.null;
