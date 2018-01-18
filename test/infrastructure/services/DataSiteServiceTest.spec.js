@@ -1,4 +1,4 @@
-import DataSiteService from '../../src/domain/services/DataSiteService'
+import DataSiteService from '../../../src/infrastructure/services/DataSiteService'
 import { expect } from 'chai'
 
 describe('DataSiteService service', function () {
@@ -22,4 +22,14 @@ describe('DataSiteService service', function () {
         expect(retArray[0]).to.not.null;
     })
 
+    it('test method getResolve4 returns dictionary items', async function () {
+            
+        let dataService = new DataSiteService();
+        let retArray = await dataService.getResolve4("www.google.com");
+
+        expect(retArray.length > 0).to.true;
+        expect(retArray[0]).to.not.null;
+    })
+
+    
 });
