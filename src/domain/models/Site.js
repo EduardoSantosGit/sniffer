@@ -5,6 +5,7 @@ export default class Site {
             return;
 
         this.name = json.name
+        this.family = json.family
     }
 
     get name(){
@@ -13,6 +14,14 @@ export default class Site {
 
     set name(value){
         this._name = value
+    }
+
+    get family(){
+        return this._family
+    }
+
+    set family(value){
+        this._family = value
     }
 
 }
