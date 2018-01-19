@@ -6,7 +6,6 @@ export default class Site {
 
         this.name = json.name
         this.family = json.family
-        this.ips = json.ips
     }
 
     get name(){
