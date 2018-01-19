@@ -27,7 +27,7 @@ describe('DataSiteService service', function () {
             
         let dataService = new DataSiteService();
         let retArray = await dataService.getResolve4("www.google.com");
-
+        
         expect(retArray.length > 0).to.true;
         expect(retArray[0]).to.not.null;
     })
@@ -36,7 +36,7 @@ describe('DataSiteService service', function () {
             
         let dataService = new DataSiteService();
         let retArray = await dataService.getResolve6("www.ipv6tf.org");
-
+        
         expect(retArray.length > 0).to.true;
         expect(retArray[0]).to.not.null;
     })
@@ -45,6 +45,8 @@ describe('DataSiteService service', function () {
             
         let dataService = new DataSiteService();
         let retArray = await dataService.getReverse("216.58.202.68");
+
+        console.log(retArray)
 
         expect(retArray.length > 0).to.true;
         expect(retArray[0]).to.not.null;

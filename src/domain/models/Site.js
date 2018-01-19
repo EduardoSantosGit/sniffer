@@ -6,6 +6,7 @@ export default class Site {
 
         this.name = json.name
         this.family = json.family
+        this.ips = json.ips
     }
 
     get name(){
@@ -22,6 +23,14 @@ export default class Site {
 
     set family(value){
         this._family = value
+    }
+
+    get ips(){
+        return this._ips
+    }
+
+    set ips(value){
+        this._ips = value
     }
 
 }
