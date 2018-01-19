@@ -25,12 +25,4 @@ export default class Site {
         this._family = value
     }
 
-    get ips(){
-        return this._ips
-    }
-
-    set ips(value){
-        this._ips = value
-    }
-
 }
