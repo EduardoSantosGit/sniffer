@@ -11,6 +11,7 @@ describe('SiteService service', function () {
         expect(result.status).to.equal("OK");
         expect(result.value.name).to.equal("www.google.com");
         expect(result.value.family).to.equal(4);
+        expect(result.value.ip).to.equal("216.58.222.100");
     })
 
 });

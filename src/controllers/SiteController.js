@@ -18,6 +18,6 @@ export default function (router) {
   
   const api = makeClassInvoker(SiteController)
 
-  router.get('/site/data/:site', api('getSiteData'))
+  router.get('/site/basic/:site', api('getSiteData'))
 
 }
