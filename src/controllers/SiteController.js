@@ -2,13 +2,14 @@ import { makeClassInvoker } from 'awilix-koa'
 
 class SiteController {
   
-  constructor({  }){
-      
+  constructor({ siteService }){
+      this.siteService = siteService
   }
 
   async getSiteData(ctx){
     let site = ctx.params.site
-    ctx.ok({})
+    let result = await this.siteService.getDataBasicSite(site)
+    ctx.ok({site : result.value})
   }
   
 }
