@@ -1,4 +1,6 @@
 import DataSiteService from '../../infrastructure/services/DataSiteService'
+import Site from '../models/Site'
+import Result from '../common/Result'
 
 export default class SiteService {
 
@@ -7,7 +9,8 @@ export default class SiteService {
     }
 
     async getDataBasicSite(site){
-           
+        let arrayAddress = await this.dataSiteService.getLookup(site);        
+        return new Result("OK", new Site({ name : site, family: arrayAddress[1] }));
     }
 
 }
