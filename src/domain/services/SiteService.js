@@ -1,6 +1,7 @@
 import DataSiteService from '../../infrastructure/services/DataSiteService'
 import Site from '../models/Site'
 import Result from '../common/Result'
+import Cache from './CacheService'
 
 export default class SiteService {
 
@@ -9,8 +10,20 @@ export default class SiteService {
     }
 
     async getDataBasicSite(site){
-        let arrayAddress = await this.dataSiteService.getLookup(site);        
-        return new Result("OK", new Site({ name : site, family: arrayAddress[1], ip : arrayAddress[0] }));
+        let result = await this.dataSiteService.getLookup(site);      
+        return new Result("OK", new Site({ name : site, family: result[1], ip : result[0] }));
+    }
+
+    async getDataCompleteSite(site){
+        let resultIp = await this.dataSiteService.getResolve4(site);
+
+        let ret = []
+
+        resultIp.forEach(async (a) => {
+            ret.push(await this.dataSiteService.getReverse(a))
+        })
+
+        return ret
     }
 
 }

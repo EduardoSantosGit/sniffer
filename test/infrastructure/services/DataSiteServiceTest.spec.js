@@ -27,7 +27,7 @@ describe('DataSiteService service', function () {
             
         let dataService = new DataSiteService();
         let retArray = await dataService.getResolve4("www.google.com");
-        
+
         expect(retArray.length > 0).to.true;
         expect(retArray[0]).to.not.null;
     })
