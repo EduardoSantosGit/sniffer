@@ -1,5 +1,6 @@
 import DataSiteService from '../../infrastructure/services/DataSiteService'
 import Site from '../models/Site'
+import SiteHost from '../models/SiteHost'
 import Result from '../common/Result'
 import Cache from './CacheService'
 

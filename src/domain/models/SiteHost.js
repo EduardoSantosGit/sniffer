@@ -1,15 +1,15 @@
+import Site from './Site'
+
 export default class SiteHost extends Site{
 
-    constructor()
+    constructor(json = null)
     {
         if (json == null || json == undefined)
             return;
+  
+        super({name: json.name, family: json.family, ip : json.ip})
 
-        this.name = json.name
-        this.family = json.family
-        this.ip = json.ip
-
-        super(this.name, this.family, this.ip)
+        this.hostName = json.hostName
     }
 
     get hostName(){
