@@ -19,9 +19,9 @@ export default class SiteService {
 
         let ret = []
 
-        resultIp.forEach(async (a) => {
-            ret.push(await this.dataSiteService.getReverse(a))
-        })
+        await Promise.all(resultIp.map(async (a) => {
+            ret.push(await this.dataSiteService.getReverse(a));
+        }));
 
         return ret
     }
