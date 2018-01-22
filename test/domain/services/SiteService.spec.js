@@ -18,7 +18,7 @@ describe('SiteService service', function () {
             
         let siteService = new SiteService();
         let result = await siteService.getDataCompleteSite("www.google.com");
-        console.log(result)
+        console.log(result.value)
         expect(result).to.not.null
     })
 
