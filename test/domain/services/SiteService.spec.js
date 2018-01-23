@@ -14,12 +14,16 @@ describe('SiteService service', function () {
         expect(result.value.ip).to.equal("216.58.222.100");
     })
 
-    it('test method getDataCompleteSite when site returns array host', async function () {
+    it('test method getDataCompleteSite when site returns OK sitehost', async function () {
             
         let siteService = new SiteService();
         let result = await siteService.getDataCompleteSite("www.google.com");
-        console.log(result.value)
+        
         expect(result).to.not.null
+        expect(result.status).to.equal("OK")
+        expect(result.value.name).to.equal("www.google.com");
+        expect(result.value.family).to.equal(4);
+        expect(result.value.hosts).to.not.null
     })
 
 });
