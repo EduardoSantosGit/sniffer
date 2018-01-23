@@ -30,6 +30,18 @@ export default class BaseController {
               "messages": result.value
             };
         }
+        else {
+            ctx.status = (result.status === "NOTFOUND")
+              ? 404
+              : (result.status === "DUPLICATED")
+                ? 409
+                : (result.status === "UNAUTHORIZED")
+                ? 401
+                : 400;
+            ctx.body = {
+              "messages": result.value
+            };      
+        }
 
     }
 
