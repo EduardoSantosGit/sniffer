@@ -21,6 +21,7 @@
   "dependencies": {
     "awilix": "^3.0.1",
     "awilix-koa": "^2.0.0",
+    "bristol": "^0.3.3",
     "kcors": "^2.2.1",
     "koa": "^2.4.1",
     "koa-convert": "^1.2.0",
