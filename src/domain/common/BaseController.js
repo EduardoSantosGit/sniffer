@@ -9,12 +9,28 @@ export default class BaseController {
                 "totalCount": (result.value || []).length,
               };
               
-              if (!resourceName)
+            if (!resourceName)
                 resourceName = "items";
       
-              ctx.body[resourceName] = result.value;
+            ctx.body[resourceName] = result.value;
+            } 
+            else {
+              if (resourceName) {
+                ctx.body = {};
+                ctx.body[resourceName] = result.value;
+              } 
+              else {
+                ctx.body = result.value;
+              }
             }
-        }    
+        } 
+        else if (result.status === "ERROR") {
+            ctx.status = 500;
+            ctx.body = {
+              "messages": result.value
+            };
+        }
+
     }
 
 }
