@@ -1,32 +1,32 @@
-import DataSiteService from '../../infrastructure/services/DataSiteService'
+import DataSiteHostService from '../../infrastructure/services/DataSiteHostService'
 import Site from '../models/Site'
 import SiteHost from '../models/SiteHost'
 import Result from '../common/Result'
 import Cache from './CacheService'
 import logger from '../../lib/logger'
 
-export default class SiteService {
+export default class SiteHostService {
 
     constructor(){
-        this.dataSiteService = new DataSiteService()
+        this.dataSiteHostService = new DataSiteHostService()
     }
 
     async getDataBasicSite(site){
         this.outLogger("getDataBasicSite", site)
-        let result = await this.dataSiteService.getLookup(site);      
+        let result = await this.dataSiteHostService.getLookup(site);      
         return new Result("OK", new Site({ name : site, family: result[1], ip : result[0] }));
     }
 
     async getDataCompleteSite(site){
         this.outLogger("getDataCompleteSite", site)
-        let resultIp = await this.dataSiteService.getResolve4(site);
+        let resultIp = await this.dataSiteHostService.getResolve4(site);
         
         let ret = []
 
         await Promise.all(resultIp.map(async (numIp) => {
             ret.push({
                 _ip: numIp,
-                _hostNames: await this.dataSiteService.getReverse(numIp)
+                _hostNames: await this.dataSiteHostService.getReverse(numIp)
             });
         }));
         

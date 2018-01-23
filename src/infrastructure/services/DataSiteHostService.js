@@ -1,7 +1,7 @@
 import dns from 'dns'
 import logger from '../../lib/logger'
 
-export default class DataSiteService {
+export default class DataSiteHostService {
     
     async getLookup(site){
         this.outLogger("getLookup", site)

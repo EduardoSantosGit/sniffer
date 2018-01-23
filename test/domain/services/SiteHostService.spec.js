@@ -1,12 +1,12 @@
-import SiteService from '../../../src/domain/services/SiteService'
+import SiteHostService from '../../../src/domain/services/SiteHostService'
 import { expect } from 'chai'
 
 describe('SiteService service', function () {
 
     it('test method getDataBasicSite when site returns OK and family ip', async function () {
             
-        let siteService = new SiteService();
-        let result = await siteService.getDataBasicSite("www.google.com");
+        let siteHostService = new SiteHostService();
+        let result = await siteHostService.getDataBasicSite("www.google.com");
         
         expect(result.status).to.equal("OK");
         expect(result.value.name).to.equal("www.google.com");
@@ -16,8 +16,8 @@ describe('SiteService service', function () {
 
     it('test method getDataCompleteSite when site returns OK sitehost', async function () {
             
-        let siteService = new SiteService();
-        let result = await siteService.getDataCompleteSite("www.google.com");
+        let siteHostService = new SiteHostService();
+        let result = await siteHostService.getDataCompleteSite("www.google.com");
         
         expect(result).to.not.null
         expect(result.status).to.equal("OK")
