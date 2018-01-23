@@ -40,7 +40,7 @@ export default class DataSiteService {
     }
     
     async getReverse(addresses){
-        this.outLogger("getReverse", site)
+        this.outLogger("getReverse", addresses)
         return new Promise(function(resolve, reject){
             dns.reverse(addresses, (err, hostnames) => {
                 if (err) {

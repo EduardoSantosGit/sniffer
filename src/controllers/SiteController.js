@@ -17,6 +17,9 @@ class SiteController {
   async getSiteDataComplete(ctx){
     let site = ctx.params.site
     this.outLogger("getSiteDataComplete", site)
+
+    console.log(ctx.request)
+
     let result = await this.siteService.getDataCompleteSite(site)
     ctx.ok({site : result.value})
   }
