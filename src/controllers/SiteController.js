@@ -1,4 +1,5 @@
 import { makeClassInvoker } from 'awilix-koa'
+import logger from '../lib/logger'
 
 class SiteController {
   
@@ -8,15 +9,27 @@ class SiteController {
 
   async getSiteDataBasic(ctx){
     let site = ctx.params.site
+    outLogger("getSiteDataBasic", site)
     let result = await this.siteService.getDataBasicSite(site)
     ctx.ok({site : result.value})
   }
 
   async getSiteDataComplete(ctx){
     let site = ctx.params.site
+    outLogger("getSiteDataComplete", site)
     let result = await this.siteService.getDataCompleteSite(site)
     ctx.ok({site : result.value})
   }
+
+  outLogger(method, param){
+    logger.debug({
+        class: 'SiteController',
+        method: method,
+        params: {
+            param
+        }
+    })
+}
   
 }
 
