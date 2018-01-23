@@ -1,6 +1,6 @@
 import Site from './Site'
 
-export default class SiteHost extends Site{
+export default class SiteHost extends Site {
 
     constructor(json = null)
     {
@@ -9,15 +9,15 @@ export default class SiteHost extends Site{
   
         super({name: json.name, family: json.family, ip : json.ip})
 
-        this.hostName = json.hostName
+        this.hosts = json.hosts
     }
 
-    get hostName(){
-        return this._hostName
+    get hosts(){
+        return this._hosts
     }
 
-    set hostName(value){
-        this._hostName = value
+    set hosts(value){
+        this._hosts = value
     }
 
 }

@@ -19,14 +19,15 @@ export default class SiteService {
         let resultIp = await this.dataSiteService.getResolve4(site);
 
         let ret = []
-        let ips = []
 
-        await Promise.all(resultIp.map(async (a) => {
-            ips.push(a);
-            ret.push(await this.dataSiteService.getReverse(a));
+        await Promise.all(resultIp.map(async (numIp) => {
+            ret.push({
+                _ip: numIp,
+                _hostNames: await this.dataSiteService.getReverse(numIp)
+            });
         }));
 
-        return new Result("OK", new SiteHost({ name : site, family: 4, ip: ips, hostName: ret}));
+        return new Result("OK", new SiteHost({ name : site, family: 4, ip: resultIp, hosts: ret}));
     }
 
 }
