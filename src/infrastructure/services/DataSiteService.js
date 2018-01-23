@@ -1,8 +1,10 @@
 import dns from 'dns'
+import logger from '../../lib/logger'
 
 export default class DataSiteService {
     
     async getLookup(site){
+        outLogger("getLookup", site)
         return new Promise(function(resolve, reject){
             dns.lookup(site, (err, address, family) => {
                 if(err)
@@ -14,6 +16,7 @@ export default class DataSiteService {
     }
     
     async getResolve4(site){
+        outLogger("getResolve4", site)
         return new Promise(function(resolve, reject){
             dns.resolve4(site, (err, addresses) => {
                 if (err) 
@@ -25,6 +28,7 @@ export default class DataSiteService {
     }
 
     async getResolve6(site){
+        outLogger("getResolve6", site)
         return new Promise(function(resolve, reject){
             dns.resolve6(site, (err, addresses) => {
                 if (err) 
@@ -36,6 +40,7 @@ export default class DataSiteService {
     }
     
     async getReverse(addresses){
+        outLogger("getReverse", site)
         return new Promise(function(resolve, reject){
             dns.reverse(addresses, (err, hostnames) => {
                 if (err) {
@@ -45,4 +50,15 @@ export default class DataSiteService {
             });
         })
     }
+
+    outLogger(method, param){
+        logger.debug({
+            class: 'DataSiteService',
+            method: method,
+            params: {
+                param
+            }
+        })
+    }
+
 }
