@@ -12,15 +12,15 @@ export default class SiteService {
     }
 
     async getDataBasicSite(site){
-        outLogger("getDataBasicSite", site)
+        this.outLogger("getDataBasicSite", site)
         let result = await this.dataSiteService.getLookup(site);      
         return new Result("OK", new Site({ name : site, family: result[1], ip : result[0] }));
     }
 
     async getDataCompleteSite(site){
-        outLogger("getDataCompleteSite", site)
+        this.outLogger("getDataCompleteSite", site)
         let resultIp = await this.dataSiteService.getResolve4(site);
-
+        
         let ret = []
 
         await Promise.all(resultIp.map(async (numIp) => {
@@ -29,7 +29,7 @@ export default class SiteService {
                 _hostNames: await this.dataSiteService.getReverse(numIp)
             });
         }));
-
+        
         return new Result("OK", new SiteHost({ name : site, family: 4, ip: resultIp, hosts: ret}));
     }
 

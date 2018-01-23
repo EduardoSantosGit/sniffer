@@ -9,14 +9,14 @@ class SiteController {
 
   async getSiteDataBasic(ctx){
     let site = ctx.params.site
-    outLogger("getSiteDataBasic", site)
+    this.outLogger("getSiteDataBasic", site)
     let result = await this.siteService.getDataBasicSite(site)
     ctx.ok({site : result.value})
   }
 
   async getSiteDataComplete(ctx){
     let site = ctx.params.site
-    outLogger("getSiteDataComplete", site)
+    this.outLogger("getSiteDataComplete", site)
     let result = await this.siteService.getDataCompleteSite(site)
     ctx.ok({site : result.value})
   }

@@ -1,11 +1,8 @@
 import assert from 'assert'
-const uuid = require('node-uuid').v4
 
 const HTTP_X_REQUEST_ID_HEADER = 'X-Request-Id'
 
-module.exports = xRequestId
-
-function xRequestId(options, app) {
+export default function xRequestId(options, app) {
   options = options || {}
   const key = options.key || HTTP_X_REQUEST_ID_HEADER
   const noHyphen = !!options.noHyphen
@@ -30,7 +27,7 @@ function xRequestId(options, app) {
   }
   
   return (ctx, next) => {
-    var id = ctx.id || ctx.query[key] || ctx.get(key) || uuid()
+    var id = ctx.id || ctx.query[key] || ctx.get(key)
     if (noHyphen) id = id.replace(/\-/g, '')
     if (inject) ctx.request.id = id
     ctx.set(key, id)

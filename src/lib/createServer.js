@@ -8,6 +8,7 @@ import { scopePerRequest } from 'awilix-koa'
 import createControllers from './controllers'
 import getConfiguredContainer from './container'
 import logger from './logger'
+import requestId from '../middleware/RequestId'
 
 export default async function createServer() {
   const app = new Koa()
@@ -15,6 +16,7 @@ export default async function createServer() {
 
   logger.debug('Creating server...', { scope: 'startup' })
 
+  app.use(requestId())
   app.use(respond())
   app.use(convert(cors()))
  
