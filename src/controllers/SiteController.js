@@ -21,6 +21,13 @@ class SiteController {
     ctx.ok({site : result.value})
   }
 
+  async getDataRequestSite(ctx){
+    let site = ctx.params.site
+    this.outLogger("getDataRequestSite", site)
+
+    ctx.ok()
+  }
+
   outLogger(method, param){
     logger.debug({
         class: 'SiteController',
@@ -37,6 +44,6 @@ export default function (router) {
   
   const api = makeClassInvoker(SiteController)
 
-  router.get('/site/basic/:site', api('getSiteDataBasic'))
-  router.get('/site/complete/:site', api('getSiteDataComplete'))
+  router.get('/site/basic/server/:site', api('getSiteDataBasic'))
+  router.get('/site/complete/server/:site', api('getSiteDataComplete'))
 }
