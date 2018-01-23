@@ -1,3 +1,9 @@
-# koa_project_start
+# Sniffer
 
-Configurações iniciais para utilizar o framework Koa.js
+## Project based on Nodejs
+
+## Technologies  
+
+* Nodejs
+* Babel
+* ES8
