@@ -1,4 +1,5 @@
 import assert from 'assert'
+import uuid from 'uuid'
 
 const HTTP_X_REQUEST_ID_HEADER = 'X-Request-Id'
 
@@ -27,7 +28,7 @@ export default function xRequestId(options, app) {
   }
   
   return (ctx, next) => {
-    var id = ctx.id || ctx.query[key] || ctx.get(key)
+    var id = ctx.id || ctx.query[key] || ctx.get(key) || uuid()
     if (noHyphen) id = id.replace(/\-/g, '')
     if (inject) ctx.request.id = id
     ctx.set(key, id)
