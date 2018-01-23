@@ -1,21 +1,7 @@
-const assert = require('assert')
-const debug = require('debug')('koa:x-request-id')
+import assert from 'assert'
 const uuid = require('node-uuid').v4
 
 const HTTP_X_REQUEST_ID_HEADER = 'X-Request-Id'
-
-/**
- * X-Request-Id:
- *
- * Generates a unique Request ID for every incoming HTTP request.
- * This unique ID is then passed to your application as an HTTP header called
- * `X-Request-Id`.
- *
- * @param {string} [key=HTTP_X_REQUEST_ID_HEADER]
- * @param {bool} [noHyphen=false]
- * @param {bool} [inject=false]
- * @api public
- */
 
 module.exports = xRequestId
 
@@ -48,7 +34,6 @@ function xRequestId(options, app) {
     if (noHyphen) id = id.replace(/\-/g, '')
     if (inject) ctx.request.id = id
     ctx.set(key, id)
-    debug('%s: %s', key, id)
     return next()
   }
 }
