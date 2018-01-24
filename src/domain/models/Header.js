@@ -42,6 +42,13 @@ export default class Header {
         this._contentType = value
     }
 
-    
+    toJSON(){
+        return {
+            "date" : this.date,
+            "connection" : this.connection,
+            "content-encoding" : this.contentEncoding,
+            "content-type" : this.contentType
+        }
+    }
 
 }
