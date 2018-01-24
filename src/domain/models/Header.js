@@ -1,7 +1,13 @@
 export default class Header {
 
-    constructor(){
-
+    constructor(json = null){
+        if (json == null || json == undefined)
+            return;
+        
+        this.date= json.date
+        this.connection = json.connection
+        this.contentEncoding = json.contentEncoding
+        this.contentType = json.contentType
     }
 
     get date(){
