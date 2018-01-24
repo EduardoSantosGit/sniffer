@@ -8,6 +8,7 @@ export default class DataSiteRequest{
     }
 
     async getResponseHeaderSite(site){
+        this.outLogger("getResponseHeaderSite", site)
         let siteResponse = await this._client._RequestMethodGet(site);
         let response = siteResponse[0];
         
@@ -15,6 +16,16 @@ export default class DataSiteRequest{
             return new Result("OK", response.headers);
             
         return response
+    }
+
+    outLogger(method, param){
+        logger.debug({
+            class: 'DataSiteRequest',
+            method: method,
+            params: {
+                param
+            }
+        })
     }
 
 }
