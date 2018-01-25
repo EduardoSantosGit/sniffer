@@ -1,6 +1,6 @@
 import Result from '../common/Result'
 import DataSiteRequestService from '../../infrastructure/services/DataSiteRequestService'
-
+import Header from '../models/Header'
 
 export default class SiteRequestService {
 
@@ -13,10 +13,13 @@ export default class SiteRequestService {
 
         if(header.status == "OK")
         {
-            
-            
-
-            return new Result("OK", result)
+            let jsonHeader = {
+                date : header.value['date'],
+                connection : header.value['connection'],
+                contentEncoding : header.value['content-encoding'],
+                contentType : header.value['content-type']
+            }
+            return new Result("OK", new Header(jsonHeader))
         }
     }
 
