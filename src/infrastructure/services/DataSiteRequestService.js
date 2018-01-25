@@ -1,7 +1,8 @@
 import Result from '../../domain/common/Result'
 import ClientRequestApi from '../client/ClientRequestApi'
+import logger from '../../lib/logger'
 
-export default class DataSiteRequest{
+export default class DataSiteRequestService {
 
     constructor(){
         this._client = new ClientRequestApi()
