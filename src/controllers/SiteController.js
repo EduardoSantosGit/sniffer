@@ -3,8 +3,9 @@ import logger from '../lib/logger'
 
 class SiteController {
   
-  constructor({ siteHostService }){
+  constructor({ siteHostService, siteRequestService }){
       this.siteHostService = siteHostService
+      this.siteRequestService = siteRequestService
   }
 
   async getSiteDataBasic(ctx){
@@ -24,8 +25,8 @@ class SiteController {
   async getDataRequestSite(ctx){
     let site = ctx.params.site
     this.outLogger("getDataRequestSite", site)
-
-    ctx.ok()
+    let result = await this.siteRequestService.getDataSiteHeader(site);
+    ctx.ok({header : result.value.toJSON()})
   }
 
   outLogger(method, param){
@@ -46,4 +47,5 @@ export default function (router) {
 
   router.get('/site/host/basic/:site', api('getSiteDataBasic'))
   router.get('/site/host/complete/:site', api('getSiteDataComplete'))
+  router.get('/site/request/header/:site', api('getDataRequestSite'))
 }

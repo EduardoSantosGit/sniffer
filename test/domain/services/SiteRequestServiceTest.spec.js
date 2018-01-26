@@ -3,7 +3,7 @@ import { expect } from 'chai'
 
 describe('SiteRequestService service', function () {
 
-    it('test method', async function () {
+    it('test method getDataSiteHeader return ok and header', async function () {
             
         let siteRequestService = new SiteRequestService();
         let result = await siteRequestService.getDataSiteHeader("https://www.npmjs.com")
