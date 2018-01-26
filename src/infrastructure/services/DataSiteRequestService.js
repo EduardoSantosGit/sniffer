@@ -19,6 +19,18 @@ export default class DataSiteRequestService {
         return new Result("ERROR");
     }
 
+    resolveUrlRequest(url, protocol){
+        
+        if(url.includes("https://") || url.includes("http://"))
+            return url
+
+        if(protocol == "HTTP")
+            return "http://" + url
+        
+        if(protocol == "HTTPS")
+            return "https://" + url
+    }
+
     outLogger(method, param){
         logger.debug({
             class: 'DataSiteRequest',
