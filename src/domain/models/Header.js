@@ -8,6 +8,8 @@ export default class Header {
         this.connection = json.connection
         this.contentEncoding = json.contentEncoding
         this.contentType = json.contentType
+        this.transferEncoding = json.transferEncoding
+        this.acceptRanges = json.acceptRanges
     }
 
     get date(){
@@ -42,12 +44,30 @@ export default class Header {
         this._contentType = value
     }
 
+    get transferEncoding(){
+        return this._transferEncoding
+    }
+
+    set transferEncoding(value){
+        this._transferEncoding = value
+    }
+
+    get acceptRanges(){
+        return this._acceptRanges
+    }
+
+    set acceptRanges(value){
+        this._acceptRanges = value
+    }
+
     toJSON(){
         return {
             "date" : this.date,
             "connection" : this.connection,
             "content-encoding" : this.contentEncoding,
-            "content-type" : this.contentType
+            "content-type" : this.contentType,
+            "Transfer-Encoding" : this.transferEncoding,
+            "Accept-Ranges" : this.acceptRanges
         }
     }
 

@@ -17,7 +17,9 @@ export default class SiteRequestService {
                 date : header.value['date'],
                 connection : header.value['connection'],
                 contentEncoding : header.value['content-encoding'],
-                contentType : header.value['content-type']
+                contentType : header.value['content-type'],
+                transferEncoding : header.value['Transfer-Encoding'],
+                acceptRanges : header.value['Accept-Ranges']
             }
             
             return new Result("OK", new Header(jsonHeader))
