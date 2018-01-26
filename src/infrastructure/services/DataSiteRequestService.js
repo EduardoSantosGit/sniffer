@@ -8,9 +8,9 @@ export default class DataSiteRequestService {
         this._client = new ClientRequestApi()
     }
 
-    async getResponseHeaderSite(site){
+    async getResponseHeaderSite(site, protocol){
         this.outLogger("getResponseHeaderSite", site)
-        let siteResponse = await this._client._RequestMethodGet(site);
+        let siteResponse = await this._client._RequestMethodGet(this.resolveUrlRequest(site, protocol));
         let response = siteResponse[0];
         
         if(response.statusCode == 200)
@@ -23,11 +23,11 @@ export default class DataSiteRequestService {
         
         if(url.includes("https://") || url.includes("http://"))
             return url
-
-        if(protocol == "HTTP")
+        
+        if(protocol.toUpperCase() == "HTTP")
             return "http://" + url
         
-        if(protocol == "HTTPS")
+        if(protocol.toUpperCase() == "HTTPS")
             return "https://" + url
     }
 

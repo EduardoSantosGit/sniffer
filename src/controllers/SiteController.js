@@ -26,7 +26,7 @@ class SiteController {
     let site = ctx.params.site
     let protocol = ctx.params.protocol
     this.outLogger("getDataRequestSite", site)
-    let result = await this.siteRequestService.getDataSiteHeader(site);
+    let result = await this.siteRequestService.getDataSiteHeader(site, protocol);
     ctx.ok({header : result.value.toJSON()})
   }
 

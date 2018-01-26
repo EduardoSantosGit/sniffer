@@ -8,8 +8,8 @@ export default class SiteRequestService {
         this.dataSiteRequestService = new DataSiteRequestService()
     }
 
-    async getDataSiteHeader(site){
-        let header = await this.dataSiteRequestService.getResponseHeaderSite(site)
+    async getDataSiteHeader(site, protocol){
+        let header = await this.dataSiteRequestService.getResponseHeaderSite(site, protocol)
         
         if(header.status == "OK")
         {
