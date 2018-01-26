@@ -9,8 +9,8 @@ export default class SiteRequestService {
     }
 
     async getDataSiteHeader(site){
-        let header = this.dataSiteRequestService.getResponseHeaderSite(site)
-
+        let header = await this.dataSiteRequestService.getResponseHeaderSite(site)
+        
         if(header.status == "OK")
         {
             let jsonHeader = {
@@ -19,8 +19,11 @@ export default class SiteRequestService {
                 contentEncoding : header.value['content-encoding'],
                 contentType : header.value['content-type']
             }
+            
             return new Result("OK", new Header(jsonHeader))
         }
+
+        return new Result("ERROR");
     }
 
 }
