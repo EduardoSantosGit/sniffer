@@ -24,6 +24,7 @@ class SiteController {
 
   async getDataRequestSite(ctx){
     let site = ctx.params.site
+    let protocol = ctx.params.protocol
     this.outLogger("getDataRequestSite", site)
     let result = await this.siteRequestService.getDataSiteHeader(site);
     ctx.ok({header : result.value.toJSON()})
@@ -47,5 +48,5 @@ export default function (router) {
 
   router.get('/site/host/basic/:site', api('getSiteDataBasic'))
   router.get('/site/host/complete/:site', api('getSiteDataComplete'))
-  router.get('/site/request/header/:site', api('getDataRequestSite'))
+  router.get('/site/request/header/:protocol/:site', api('getDataRequestSite'))
 }
