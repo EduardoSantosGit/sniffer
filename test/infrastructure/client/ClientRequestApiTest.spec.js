@@ -12,5 +12,5 @@ describe('ClientRequestApi client', function () {
         expect(result[0]).to.not.null;
         expect(result[1]).to.not.null;
     })
- 
+
 });

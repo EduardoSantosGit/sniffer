@@ -16,7 +16,7 @@ export default class DataSiteRequestService {
         if(response.statusCode == 200)
             return new Result("OK", response.headers);
             
-        return response
+        return new Result("ERROR");
     }
 
     outLogger(method, param){
