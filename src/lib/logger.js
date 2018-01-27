@@ -1,9 +1,10 @@
-import { Bristol } from 'bristol'
-import palin from 'palin'
+import winston from 'winston' 
 
-const logger = new Bristol()
-logger.addTarget('console').withFormatter(palin, {
-  rootFolderName: 'sniffer'
-})
+let logger = new winston.Logger({
+  level: 'info',
+  transports: [
+    new (winston.transports.Console)(),
+  ]
+});
 
 export default logger
