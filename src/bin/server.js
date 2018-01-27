@@ -1,6 +1,10 @@
 import createServer from '../lib/createServer'
+import env from '../lib/env'
 
-createServer().then(app => {
-  app.listen(3000, () => {
+const PORT = env.PORT || 3000
+
+createServer().then(app => { 
+  app.listen(PORT, () => {
+    const mode = env.NODE_ENV
   })
 })

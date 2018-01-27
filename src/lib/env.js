@@ -5,8 +5,7 @@ import yenv from 'yenv'
  */
 const env = {
   NODE_ENV: process.env.NODE_ENV || 'development',
-  load: (newEnv) => Object.assign(env, yenv('env.yaml', { env: newEnv })),
-  ...yenv()
+  load: (newEnv) => Object.assign(env, yenv('env.yaml', { env: newEnv }))
 }
 
 export default env
