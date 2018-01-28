@@ -2,9 +2,8 @@ import cache from 'memory-cache';
 
 export default class CacheService {
   
-  static write(key, value, timeout = 90 * 60, timeoutCallback) {
-   
-    cache.put(key, value, timeout * 1000, timeoutCallback);
+  static write(key, value) {
+    cache.put(key, value, 100);
   }
 
   static read(key) {

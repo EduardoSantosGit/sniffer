@@ -13,7 +13,14 @@ export default class SiteHostService {
 
     async getDataBasicSite(site){
         this.outLogger("getDataBasicSite", site)
-        let result = await this.dataSiteHostService.getLookup(site);      
+
+        let result = Cache.read(site);
+
+        if(result === null){
+            result = await this.dataSiteHostService.getLookup(site);
+            Cache.write(site, result);
+        }
+        
         return new Result("OK", new Site({ name : site, family: result[1], ip : result[0] }));
     }
 
