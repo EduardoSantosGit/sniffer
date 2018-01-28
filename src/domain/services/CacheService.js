@@ -1,23 +1,27 @@
-import NodeCache from "node-cache"
+import cache from 'memory-cache';
 
 export default class CacheService {
-    
-    /* static cache = new NodeCache( { stdTTL: 100, checkperiod: 120 } );
+  
+  static write(key, value, timeout = 90 * 60, timeoutCallback) {
+   
+    cache.put(key, value, timeout * 1000, timeoutCallback);
+  }
 
-    static write(key, value){
-        CacheService.cache.set(key, value)
-    }
+  static read(key) {
+    const ret = cache.get(key);
+    if (ret === null) {
+    } 
+    return ret;
+  }
 
-    static read(key){
-       return CacheService.cache.get(key)
-    }
+  static delete(key) {
+    return cache.del(key);
+  }
 
-    static delete(key){
-        return CacheService.cache.del(key)
-    }
-
-    static info(){
-        return CacheService.cache.getStats();
-    } */
-
+  static info() {
+    return {
+      size: cache.size(),
+      memorySize: cache.memsize(),
+    };
+  }
 }
