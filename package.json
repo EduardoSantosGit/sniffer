@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon src/bin/server.js --preset es2017",
-    "test": "set NODE_ENV=test && mocha test/**/*.spec.js --require babel-core/register --timeout 80000"
+    "test": "set NODE_ENV=test && mocha test/**/*.spec.js --require babel-core/register --timeout 80000",
+    "cover": "nyc --reporter=lcov --reporter=text-lcov npm run test"
   },
   "author": "eduardo",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "chai": "^4.1.2",
     "mocha": "^4.1.0",
     "nodemon": "^1.12.1",
+    "nyc": "^11.4.1",
     "sinon": "^4.1.6"
   },
   "dependencies": {
