@@ -8,10 +8,10 @@ class EndpointController {
   }
 
   async getInfo (ctx) {
-    /*ctx.ok({
+    /* ctx.ok({
       timestamp: new Date(),
       info: await this.systemService.getInfoSystem()
-    })*/
+    }) */
     Base.createResponseFromResult(ctx,
       {
       timestamp: new Date(),

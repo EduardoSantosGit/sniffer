@@ -6,15 +6,24 @@
   "scripts": {
     "dev": "nodemon src/bin/server.js --preset es2017",
     "test": "set NODE_ENV=test && mocha test/**/*.spec.js --require babel-core/register --timeout 80000",
-    "cover": "nyc --reporter=lcov --reporter=text-lcov npm run test"
+    "cover": "nyc --reporter=lcov --reporter=text-lcov npm run test",
+    "lint": "eslint --fix src && prettier --write \"src/**/*.js\""
   },
   "author": "eduardo",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2017": "^6.24.1",
     "chai": "^4.1.2",
+    "eslint": "^4.16.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "mocha": "^4.1.0",
     "nodemon": "^1.12.1",
     "nyc": "^11.4.1",

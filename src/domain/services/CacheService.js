@@ -2,7 +2,7 @@ import NodeCache from "node-cache"
 
 export default class CacheService {
     
-    /*static cache = new NodeCache( { stdTTL: 100, checkperiod: 120 } );
+    /* static cache = new NodeCache( { stdTTL: 100, checkperiod: 120 } );
 
     static write(key, value){
         CacheService.cache.set(key, value)
@@ -18,6 +18,6 @@ export default class CacheService {
 
     static info(){
         return CacheService.cache.getStats();
-    }*/
+    } */
 
 }
