@@ -32,7 +32,7 @@ export default class DataSiteRequestService {
     }
 
     outLogger(method, param){
-        logger.debug({
+        logger.info({
             class: 'DataSiteRequest',
             method: method,
             params: {

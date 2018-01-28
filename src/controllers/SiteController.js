@@ -31,7 +31,7 @@ class SiteController {
   }
 
   outLogger(method, param){
-    logger.debug({
+    logger.info({
         class: 'SiteController',
         method: method,
         params: {

@@ -34,7 +34,7 @@ export default class SiteHostService {
     }
 
     outLogger(method, param){
-        logger.debug({
+        logger.info({
             class: 'SiteService',
             method: method,
             params: {

@@ -52,7 +52,7 @@ export default class DataSiteHostService {
     }
 
     outLogger(method, param) {
-        logger.debug({
+        logger.info({
             class: 'DataSiteService',
             method: method,
             params: {
