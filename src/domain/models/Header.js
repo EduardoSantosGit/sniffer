@@ -1,7 +1,7 @@
 export default class Header {
 
     constructor(json = null){
-        if (json == null || json == undefined)
+        if (json == null || json === undefined)
             return;
         
         this.date= json.date

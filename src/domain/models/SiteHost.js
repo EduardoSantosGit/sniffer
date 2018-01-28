@@ -4,7 +4,7 @@ export default class SiteHost extends Site {
 
     constructor(json = null)
     {
-        if (json == null || json == undefined)
+        if (json == null || json === undefined)
             return;
   
         super({name: json.name, family: json.family, ip : json.ip})

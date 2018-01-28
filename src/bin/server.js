@@ -5,6 +5,5 @@ const PORT = env.PORT || 3000
 
 createServer().then(app => { 
   app.listen(PORT, () => {
-    const mode = env.NODE_ENV
   })
 })
