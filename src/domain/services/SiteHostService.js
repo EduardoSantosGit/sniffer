@@ -26,8 +26,14 @@ export default class SiteHostService {
 
     async getDataCompleteSite(site){
         this.outLogger("getDataCompleteSite", site)
-        let resultIp = await this.dataSiteHostService.getResolve4(site);
-        
+
+        let resultIp = Cache.read(site);
+
+        if(resultIp === null){
+            resultIp = await this.dataSiteHostService.getResolve4(site);
+            Cache.write(site, resultIp);
+        }
+            
         let ret = []
 
         await Promise.all(resultIp.map(async (numIp) => {
