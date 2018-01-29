@@ -1,4 +1,3 @@
-import assert from 'assert'
 import uuid from 'uuid'
 
 const HTTP_X_REQUEST_ID_HEADER = 'X-Request-Id'

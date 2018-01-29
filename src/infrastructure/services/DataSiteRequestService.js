@@ -21,7 +21,8 @@ export default class DataSiteRequestService {
 
     resolveUrlRequest(url, protocol){
         
-        if(url.includes("https://") || url.includes("http://"))
+        if(url.toUpperCase().includes("HTTPS://") || 
+            url.toUpperCase().includes("HTTP://"))
             return url
         
         if(protocol.toUpperCase() === "HTTP")
