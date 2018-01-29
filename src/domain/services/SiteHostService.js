@@ -21,6 +21,10 @@ export default class SiteHostService {
             Cache.write(site, result);
         }
         
+        if(result[0] === null || result[1] === null){
+            return new Result("ERROR", "data null object");
+        }
+
         return new Result("OK", new Site({ name : site, family: result[1], ip : result[0] }));
     }
 
@@ -33,7 +37,11 @@ export default class SiteHostService {
             resultIp = await this.dataSiteHostService.getResolve4(site);
             Cache.write(site, resultIp);
         }
-            
+        
+        if(resultIp === null){
+            return new Result("ERROR", "data null object");
+        }    
+
         let ret = []
 
         await Promise.all(resultIp.map(async (numIp) => {
