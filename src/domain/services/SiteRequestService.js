@@ -1,6 +1,7 @@
 import Result from '../common/Result'
 import DataSiteRequestService from '../../infrastructure/services/DataSiteRequestService'
 import Header from '../models/Header'
+import Cache from './CacheService'
 
 export default class SiteRequestService {
 
@@ -9,9 +10,15 @@ export default class SiteRequestService {
     }
 
     async getDataSiteHeader(site, protocol) {
-        let header = await this.dataSiteRequestService.getResponseHeaderSite(site, protocol)
 
-        if (header.status == "OK") {
+        let header = Cache.read(site);
+
+        if(header === null){
+            header = await this.dataSiteRequestService.getResponseHeaderSite(site, protocol)
+            Cache.write(site, header);
+        }
+
+        if (header.status === "OK") {
             let jsonHeader = {
                 date: header.value['date'],
                 connection: header.value['connection'],
