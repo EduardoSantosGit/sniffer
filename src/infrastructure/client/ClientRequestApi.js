@@ -12,17 +12,4 @@ export default class ClientRequestApi {
             });
         })   
     }
-
-    async _RequestMethodPost(url, form){
-        return new Promise(function(resolve, reject){
-            request.post({url:url, form: form}, 
-                function(err,httpResponse,body){ 
-                    if(error)
-                        reject(error)
-
-                    resolve([httpResponse, body])    
-                })
-            })        
-    }
-
 }
