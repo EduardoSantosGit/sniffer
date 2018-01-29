@@ -17,7 +17,7 @@ export default class SiteRequestService {
             header = await this.dataSiteRequestService.getResponseHeaderSite(site, protocol)
             Cache.write(site, header);
         }
-
+        
         if (header.status === "OK") {
             let jsonHeader = {
                 date: header.value['date'],

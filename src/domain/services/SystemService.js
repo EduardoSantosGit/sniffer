@@ -1,5 +1,4 @@
 import os from 'os'
-import dns from 'dns'
 
 export default class SystemService {
 
