@@ -14,5 +14,4 @@ export default class ScrapParser {
         
         return block;
     }
-
 }

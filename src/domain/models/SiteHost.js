@@ -20,4 +20,10 @@ export default class SiteHost extends Site {
         this._hosts = value
     }
 
+    toJSON(){
+        return {
+            hosts : this.hosts
+        }
+    }
+
 }

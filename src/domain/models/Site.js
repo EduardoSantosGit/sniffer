@@ -33,4 +33,12 @@ export default class Site {
         this._ip = value
     }
 
+    toJSON(){
+        return {
+            name : this.name,
+            family : this.family,
+            ip : this.ip 
+        }
+    }
+
 }
