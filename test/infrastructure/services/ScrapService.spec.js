@@ -1,15 +1,17 @@
 import DataSiteRequestService from '../../../src/infrastructure/services/DataSiteRequestService'
+import ScrapService from '../../../src/infrastructure/services/ScrapService'
 import { expect } from 'chai'
 
 describe('Scrap service', function () {
 
     it('test method parseBlockCss return array link head', async function () {
     
-        let dataSiteRequestService = new DataSiteRequestService();
-        let result = await dataSiteRequestService.getResponseHeaderSite("https://www.npmjs.com");
-        
-        expect(result).to.not.null
-        expect(result.status).to.equal("OK")
-        expect(result.value).to.not.null
+        let dataSiteRequestService = new DataSiteRequestService(); 
+        let scrapService = new ScrapService();
+        let body = await dataSiteRequestService.getResponseBodySite("https://www.npmjs.com");
+
+        let links = await scrapService.parseBlockCss(body);
+        console.log(log)
+        expect(links).to.not.null
     })
 })
