@@ -11,7 +11,7 @@ describe('Scrap service', function () {
         let body = await dataSiteRequestService.getResponseBodySite("https://www.npmjs.com");
 
         let links = await scrapService.parseBlockCss(body);
-        console.log(log)
+        console.log("data ", JSON.stringify(links))
         expect(links).to.not.null
     })
 })
