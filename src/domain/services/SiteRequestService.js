@@ -1,5 +1,6 @@
 import Result from '../common/Result'
 import DataSiteRequestService from '../../infrastructure/services/DataSiteRequestService'
+import ScrapService from '../../infrastructure/services/ScrapService'
 import Header from '../models/Header'
 import Cache from './CacheService'
 
@@ -7,6 +8,7 @@ export default class SiteRequestService {
 
     constructor() {
         this.dataSiteRequestService = new DataSiteRequestService()
+        this.scrapService = new ScrapService()
     }
 
     async getDataSiteHeader(site, protocol) {
@@ -33,5 +35,14 @@ export default class SiteRequestService {
 
         return new Result("ERROR");
     }
+
+    async getCssSite(site, protocol){
+
+        let cacheSite = Cache.read(site);
+        let body = await this.dataSiteRequestService.getResponseBodySite(site, protocol) 
+        let css = await this.scrapService.parseBlockCss(body)
+    }
+
+
 
 }
