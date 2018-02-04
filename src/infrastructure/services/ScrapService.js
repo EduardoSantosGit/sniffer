@@ -13,15 +13,18 @@ export default class ScrapService {
         
         let ret = [];
         tableLink.map(x => {
-            if(this.isCss(x))
-                ret.push(this.scrap.scrapBlockPage(x, "href=\"", "\">"))
-                
+            if(this.isCss(x))              
+                ret.push(this.formatLink(this.scrap.scrapBlockPage(x, "href=", "\">")))
         });
         return ret
     }
 
     isCss(link){
         return (link.includes(".css") == true) ? true : false;
+    }
+
+    formatLink(link){
+        return link.replace(/\\/g,"").replace("\"","");
     }
 
 

@@ -5,7 +5,7 @@ export default class ScrapParser {
         let textString = JSON.stringify(text);    
 
         let firstIndex = textString.lastIndexOf(indexOn);
-
+        
         firstIndex = firstIndex + indexOn.length;
 
         let lastIndex = textString.indexOf(indexLast);
@@ -13,10 +13,7 @@ export default class ScrapParser {
         let exit = lastIndex - firstIndex;
 
         let block = textString.substring(firstIndex, exit);
-        
+
         return block;
     }
-
-    
-
 }
