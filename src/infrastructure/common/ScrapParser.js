@@ -1,7 +1,7 @@
 export default class ScrapParser {
 
     scrapBlockPage(text, indexOn, indexLast){
-
+        
         let textString = JSON.stringify(text);    
 
         let firstIndex = textString.lastIndexOf(indexOn);
@@ -16,4 +16,7 @@ export default class ScrapParser {
         
         return block;
     }
+
+    
+
 }
