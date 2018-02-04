@@ -33,9 +33,9 @@ class SiteController {
   async getDataCssSite(ctx){
     let site = ctx.params.site
     let protocol = ctx.params.protocol
-    this.outLogger("getDataRequestSite", site)
+    this.outLogger("getDataCssSite", site)
     let result = await this.siteRequestService.getCssSite(site, protocol);
-    ctx.ok({header : result.value})
+    ctx.ok({head : result.value})
   }
 
   outLogger(method, param){

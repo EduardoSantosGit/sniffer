@@ -1,6 +1,6 @@
 import Site from './Site'
 
-export default class Head extends Site{
+export default class Head extends Site {
 
     constructor(json = null){
         if (json == null || json === undefined)
