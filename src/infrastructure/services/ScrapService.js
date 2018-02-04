@@ -7,11 +7,9 @@ export default class ScrapService {
     }
 
     async parseBlockCss(text){
-
+        
         let head = this.scrap.scrapBlockPage(text, "<head>", "</head>");
-
-
-
+        let tableLink = head.split("<link rel");  
         return head
     }
 

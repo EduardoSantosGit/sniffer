@@ -9,7 +9,8 @@
     "cover": "nyc --reporter=lcov --reporter=text-lcov npm run test",
     "lint": "eslint --fix src && prettier --write \"src/**/*.js\"",
     "build": "babel src -d dist -s",
-    "start": "node dist/bin/server.js"
+    "start": "node dist/bin/server.js",
+    "test-run" : "set NODE_ENV=test && mocha test/infrastructure/services/ScrapService.spec.js --require babel-core/register --timeout 80000"
   },
   "author": "eduardo",
   "license": "ISC",

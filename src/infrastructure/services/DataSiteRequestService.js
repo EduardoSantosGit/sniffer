@@ -23,7 +23,7 @@ export default class DataSiteRequestService {
         this.outLogger("getResponseBodySite", site)
         let siteResponse = await this._client._RequestMethodGet(this.resolveUrlRequest(site, protocol));
         
-        if(siteResponse[0].statusCode == 200)
+        if(siteResponse[0].statusCode === 200)
             return new Result("OK", siteResponse[1]);
         
         return new Result("ERROR");
