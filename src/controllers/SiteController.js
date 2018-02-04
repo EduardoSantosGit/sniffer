@@ -30,6 +30,14 @@ class SiteController {
     ctx.ok({header : result.value.toJSON()})
   }
 
+  async getDataCssSite(ctx){
+    let site = ctx.params.site
+    let protocol = ctx.params.protocol
+    this.outLogger("getDataRequestSite", site)
+    let result = await this.siteRequestService.getCssSite(site, protocol);
+    ctx.ok({header : result.value})
+  }
+
   outLogger(method, param){
     logger.info({
         class: 'SiteController',
@@ -49,4 +57,5 @@ export default function (router) {
   router.get('/site/host/basic/:site', api('getSiteDataBasic'))
   router.get('/site/host/complete/:site', api('getSiteDataComplete'))
   router.get('/site/request/header/:protocol/:site', api('getDataRequestSite'))
+  router.get('/site/request/css/:protocol/:site', api('getDataCssSite'))
 }

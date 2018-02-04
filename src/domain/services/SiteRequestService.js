@@ -3,6 +3,7 @@ import DataSiteRequestService from '../../infrastructure/services/DataSiteReques
 import ScrapService from '../../infrastructure/services/ScrapService'
 import Header from '../models/Header'
 import Cache from './CacheService'
+import Head from '../models/Head'
 
 export default class SiteRequestService {
 
@@ -41,6 +42,7 @@ export default class SiteRequestService {
         let cacheSite = Cache.read(site);
         let body = await this.dataSiteRequestService.getResponseBodySite(site, protocol) 
         let css = await this.scrapService.parseBlockCss(body)
+        return new Result("OK", new Head({ site : site, protocol : 4, css : css }));
     }
 
 
