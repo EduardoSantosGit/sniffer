@@ -15,7 +15,12 @@ class EcommerceController {
         this.outLogger("getProductByName", product)
         ctx.ok()
     }
-  
+
+    async getEcommerceByProduct(ctx){
+        let product = ctx.params.name
+        this.outLogger("getEcommerceByProduct", product)
+        ctx.ok()
+    }
 }
 
 export default function (router) {
@@ -24,4 +29,6 @@ export default function (router) {
 
   router.get('/peek/v1/product/:site/name/:name', api('getProductBySite'))
   router.get('/peek/v1/product/name/:name', api('getProductByName'))
+
+  router.get('/peek/v1/ecommerce/product/:name', api('getEcommerceByProduct'))
 }
