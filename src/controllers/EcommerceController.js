@@ -27,6 +27,12 @@ class EcommerceController {
         this.outLogger("getEcommerceByCategory", product)
         ctx.ok()
     }
+
+    async getEcommercePromotions(ctx){
+        let product = ctx.params.name
+        this.outLogger("getEcommercePromotions", product)
+        ctx.ok()
+    }
 }
 
 export default function (router) {
@@ -38,4 +44,7 @@ export default function (router) {
 
   router.get('/peek/v1/ecommerce/product/:name', api('getEcommerceByProduct'))
   router.get('/peek/v1/ecommerce/category/:name', api('getEcommerceByCategory'))
+
+  router.get('/peek/v1/ecommerce/:name/promotions/', api('getEcommercePromotions'))
+  
 }
