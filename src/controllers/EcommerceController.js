@@ -6,30 +6,40 @@ class EcommerceController {
     async getProductBySite(ctx){
         let site = ctx.params.site
         let product = ctx.params.name
+        let id = ctx.request.id
+
         this.outLogger("getProductBySite", site)
         ctx.ok()
     }
 
     async getProductByName(ctx){
         let product = ctx.params.name
+        let id = ctx.request.id
+
         this.outLogger("getProductByName", product)
         ctx.ok()
     }
 
     async getEcommerceByProduct(ctx){
         let product = ctx.params.name
+        let id = ctx.request.id
+
         this.outLogger("getEcommerceByProduct", product)
         ctx.ok()
     }
 
     async getEcommerceByCategory(ctx){
         let product = ctx.params.name
+        let id = ctx.request.id
+
         this.outLogger("getEcommerceByCategory", product)
         ctx.ok()
     }
 
     async getEcommercePromotions(ctx){
         let product = ctx.params.name
+        let id = ctx.request.id
+
         this.outLogger("getEcommercePromotions", product)
         ctx.ok()
     }
