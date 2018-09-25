@@ -2,8 +2,12 @@ export default class HttpResponse
 {
     constructor(response = null)
     {
-        if (response == null || response === undefined)
+        if (response == null || response === undefined || response != typeof(object)) 
             return;
+
+        this._content =  response.body
+        this._headers = response.headers
+        this._statusCode = response.statusCode
     }
 
     get content(){
@@ -22,5 +26,12 @@ export default class HttpResponse
         this._headers = value
     }
 
+    get statusCode(){
+        return this._statusCode
+    }
+
+    set statusCode(value){
+        this._statusCode = value
+    }
 
 }
