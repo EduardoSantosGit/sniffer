@@ -1,4 +1,5 @@
 import request from 'request'
+import HttpResponse from '../../domain/models/HttpResponse'
 
 export default class HttpRequestClient 
 {
@@ -9,8 +10,8 @@ export default class HttpRequestClient
             request.get(url, function (error, response, body) {
                 if(error)
                     reject(error)
-                
-                resolve([response, body])
+
+                resolve(new HttpResponse(response))
             });
         })   
     }

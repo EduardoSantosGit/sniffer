@@ -2,7 +2,7 @@ export default class HttpResponse
 {
     constructor(response = null)
     {
-        if (response == null || response === undefined || response != typeof(object)) 
+        if (response == null || response === undefined) 
             return;
 
         this._content =  response.body
