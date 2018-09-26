@@ -19,7 +19,7 @@ export default class HttpRequestClient
     async postAsync(url, body)
     {
         return new Promise(function(resolve, reject){
-            request.get(url, body, function (error, response, body) {
+            request.post(url, body, function (error, response, body) {
                 if(error)
                     reject(error)
 

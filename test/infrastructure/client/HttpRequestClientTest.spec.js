@@ -23,4 +23,13 @@ describe('HttpRequestClient client return httpresponse ok', function () {
         expect(result.statusCode).to.equal(404);
     })
 
+    it('test method postAsync returns response ok', async function () {
+    
+        let client = new HttpRequestClient();
+        let json = { name : "test", email : "test@te" }
+        let result = await client.postAsync("https://httpbin.org/post", json);
+        
+        expect(result.statusCode).to.equal(200);
+    })
+
 });
