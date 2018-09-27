@@ -16,15 +16,24 @@ export default class HttpRequestClient
         })   
     }
 
-    async postAsync(url, body)
+    async postAsync(url, data)
     {
         return new Promise(function(resolve, reject){
-            request.post(url, body, function (error, response, body) {
+            request.post({
+                url: url,
+                method: "POST",
+                json: data
+            }, function (error, response, body) {
                 if(error)
                     reject(error)
 
                 resolve(new HttpResponse(response))
             });
         })
+    }
+
+    async sendAsync(message)
+    {
+
     }
 }
