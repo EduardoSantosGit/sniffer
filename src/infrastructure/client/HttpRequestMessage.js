@@ -15,6 +15,14 @@ export default class HttpRequestMessage
         this._httpContent = value
     }
 
+    get httpRequestHeaders(){
+        return this._httpRequestHeaders
+    }
+
+    set httpRequestHeaders(value){
+        this._httpRequestHeaders = value
+    }
+
     get method(){
         return this._method
     }
@@ -29,6 +37,10 @@ export default class HttpRequestMessage
 
     set uri(value){
         this._uri = value
+    }
+
+    dispose(){
+        
     }
 
 }
