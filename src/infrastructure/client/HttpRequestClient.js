@@ -32,7 +32,23 @@ export default class HttpRequestClient
         })
     }
 
-    async sendAsync(message)
+    async sendFormUrlEncodedContentAsync(message)
+    {
+        return new Promise(function(resolve, reject){
+            request.post({
+                url: url,
+                method: "POST",
+                form: message.httpContent
+            }, function (error, response, body) {
+                if(error)
+                    reject(error)
+
+                resolve(new HttpResponse(response))
+            });
+        })
+    }
+
+    async sendFormDataAsync(message)
     {
 
     }
