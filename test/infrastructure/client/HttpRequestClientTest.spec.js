@@ -50,4 +50,13 @@ describe('HttpRequestClient client return httpresponse ok', function () {
         expect(result.statusCode).to.equal(404);
     })
 
+    it('test method sendFormUrlEncodedContentAsync returns data error', async function () {
+    
+        let client = new HttpRequestClient();
+        let form = { name : "test", email : "test@te" }
+        let result = await client.sendFormUrlEncodedContentAsync("https://httpbin.t", form);
+
+        expect(result.statusCode).to.equal(404);
+    })
+
 });

@@ -43,7 +43,7 @@ export default class HttpRequestClient
                 if(error)
                     reject(error)
 
-                resolve(new HttpResponse(response))
+                resolve(new HttpError(response))
             });
         })
     }
