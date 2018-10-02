@@ -50,6 +50,6 @@ export default class HttpRequestClient
 
     async sendFormDataAsync(message)
     {
-
+        
     }
 }
