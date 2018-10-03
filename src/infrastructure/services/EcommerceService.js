@@ -2,7 +2,7 @@ import logger from '../../lib/logger'
 import Result from '../../domain/common/Result'
 import HttpClient from '../client/HttpRequestClient'
 
-export default class DataSiteHostService {
+export default class EcommerceService {
 
     constructor()
     {
