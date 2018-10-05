@@ -11,9 +11,19 @@ export default class EcommerceService {
 
     async getInfoEcommerce(site, product)
     {
-        let url = site + product
+        let url = this.createUrlRequest(site, product)
         let result = await this._client.getAsync(url)
         return result
+    }
+
+    createUrlRequest(base, endpoint, protocol = null)
+    {
+        if(protocol === null)
+            protocol = "https"
+        
+        let scope = protocol + "://" + "www."
+        let url = scope + base + ".com.br" + "/" + endpoint
+        return url    
     }
 
 }
