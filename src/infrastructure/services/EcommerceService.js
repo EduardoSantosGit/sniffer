@@ -7,6 +7,9 @@ export default class EcommerceService {
     constructor()
     {
         this._client = new HttpClient()
+        this._ecommercesMap = new Map()
+        this._ecommercesMap.set("submarino", "busca")
+        this._ecommercesMap.set("americanas", "busca")
     }
 
     async getInfoEcommerce(site, product)
@@ -20,6 +23,12 @@ export default class EcommerceService {
     {
         if(protocol === null)
             protocol = "https"
+
+        if(this._ecommercesMap.get(base) !== undefined)
+        {
+            endpoint = this._ecommercesMap.get(base) 
+            + "/" + endpoint
+        }
         
         let scope = protocol + "://" + "www."
         let url = scope + base + ".com.br" + "/" + endpoint
