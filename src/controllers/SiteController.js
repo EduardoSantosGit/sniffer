@@ -6,27 +6,33 @@ class SiteController {
   constructor({ siteHostService, siteRequestService }){
       this.siteHostService = siteHostService
       this.siteRequestService = siteRequestService
+      this.logTemplate = 'Class: %s Method: %s Params: %s'
   }
 
   async getSiteDataBasic(ctx){
-    let site = ctx.params.site
-    this.outLogger("getSiteDataBasic", site)
-    let result = await this.siteHostService.getDataBasicSite(site)
+    logger.info(this.logTemplate,'SiteController','getSiteDataBasic', ctx.params.site);
+    
+    let result = await this.siteHostService.getDataBasicSite(ctx.params.site)
     ctx.ok({site : result.value})
   }
 
   async getSiteDataComplete(ctx){
-    let site = ctx.params.site
-    this.outLogger("getSiteDataComplete", site)
-    let result = await this.siteHostService.getDataCompleteSite(site)
+    logger.info(this.logTemplate,'SiteController','getSiteDataComplete', ctx.params.site);
+    
+    let result = await this.siteHostService.getDataCompleteSite(ctx.params.site)
     ctx.ok({site : result.value})
   }
 
   async getDataRequestSite(ctx){
-    let site = ctx.params.site
-    let protocol = ctx.params.protocol
-    this.outLogger("getDataRequestSite", site)
-    let result = await this.siteRequestService.getDataSiteHeader(site, protocol);
+    
+    let params = {
+      "site" : ctx.params.site,
+      "protocol" : ctx.params.protocol
+    }
+
+    logger.info(this.logTemplate,'SiteController','getDataRequestSite', { number: 123 });
+
+    let result = await this.siteRequestService.getDataSiteHeader(params.site, params.protocol);
     ctx.ok({header : result.value.toJSON()})
   }
 
