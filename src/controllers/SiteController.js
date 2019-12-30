@@ -43,15 +43,6 @@ class SiteController {
     let result = await this.siteRequestService.getCssSite(site, protocol);
     ctx.ok({head : result.value})
   }
-
-  outLogger(method, param){
-    logger.info({
-        class: 'SiteController',
-        method: method,
-        params: {
-            param
-        }
-    })
 }
   
 }
