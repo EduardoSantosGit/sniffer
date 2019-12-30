@@ -1,4 +1,4 @@
-import Scrap from '../common/ScrapParser'
+import Scrap from '../../domain/common/ScrapParser'
 
 export default class ScrapService {
 
