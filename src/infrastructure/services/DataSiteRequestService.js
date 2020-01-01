@@ -42,14 +42,4 @@ export default class DataSiteRequestService {
             return "https://" + url
     }
 
-    outLogger(method, param){
-        logger.info({
-            class: 'DataSiteRequest',
-            method: method,
-            params: {
-                param
-            }
-        })
-    }
-
 }

@@ -50,15 +50,4 @@ export default class DataSiteHostService {
             });
         })
     }
-
-    outLogger(method, param) {
-        logger.info({
-            class: 'DataSiteService',
-            method: method,
-            params: {
-                param
-            }
-        })
-    }
-
 }

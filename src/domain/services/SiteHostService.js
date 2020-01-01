@@ -54,14 +54,4 @@ export default class SiteHostService {
         return new Result("OK", new SiteHost({ name : site, family: 4, ip: resultIp, hosts: ret}));
     }
 
-    outLogger(method, param){
-        logger.info({
-            class: 'SiteService',
-            method: method,
-            params: {
-                param
-            }
-        })
-    }
-
 }
