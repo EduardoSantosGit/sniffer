@@ -13,14 +13,14 @@ export default class ScrapService {
         console.log(tableLink.length);
         let ret = [];
         
-        for (let index = 0; index < 1; index++) {
-            const element = tableLink[index];
-            console.log(element)
-            if (this.isCss(element)) {
-                //console.log("test " + JSON.stringify(this.formatLink(this.scrap.scrapBlockPage(element, "href=", "\">"))));
-                ret.push(this.formatLink(this.scrap.scrapBlockPage(element, "href=", "\">")))
-            }
-        }
+        // for (let index = 0; index < 1; index++) {
+        //     const element = tableLink[index];
+        //     console.log(element)
+        //     if (this.isCss(element)) {
+        //         //console.log("test " + JSON.stringify(this.formatLink(this.scrap.scrapBlockPage(element, "href=", "\">"))));
+        //         ret.push(this.formatLink(this.scrap.scrapBlockPage(element, "href=", "\">")))
+        //     }
+        // }
 
         // tableLink.map(x => {
         //     if (this.isCss(x)) {
@@ -33,11 +33,11 @@ export default class ScrapService {
     }
 
     isCss(link) {
-        return (link.includes(".css") == true) ? true : false;
+        //return (link.includes(".css") == true) ? true : false;
     }
 
     formatLink(link) {
-        return link.replace(/\\/g, "").replace("\"", "");
+        //return link.replace(/\\/g, "").replace("\"", "");
     }
 
 
