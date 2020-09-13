@@ -1,15 +1,14 @@
-import request from 'request'
-
 export default class HttpClient {
     
     async sendAsync(req) {
-        return new Promise((resolve, reject) => {
-            request(req, (error, response, body) => {
-                if (error)
-                    reject(error)
+        // return new Promise((resolve, reject) => {
+        //     request(req, (error, response, body) => {
+        //         if (error)
+        //             reject(error)
 
-                resolve(response);
-            });
-        });
+        //         resolve(response);
+        //     });
+        // });
+        return null;
     }
 }

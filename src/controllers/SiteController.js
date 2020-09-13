@@ -44,8 +44,6 @@ class SiteController {
     ctx.ok({head : result.value})
   }
 }
-  
-}
 
 export default function (router) {
   
