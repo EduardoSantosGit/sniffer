@@ -8,7 +8,7 @@ class EndpointController {
 
   async getInfo (ctx) {
     ctx.ok({
-      timestamp: new Date(),
+      //timestamp: new Date(),
       info: await this.systemService.getInfoSystem()
     }) 
   }
